@@ -1,34 +1,17 @@
-This repository contains my mods for VRChat. Join the [VRChat Modding Group discord](https://discord.gg/rCqKSvR) for support and more mods!  
-Looking for more (universal) mods? [Check out my universal mods repository!](https://github.com/knah/ML-UniversalMods)
+# FavCat Community Edition 
 
-## AdvancedSafety
-Features:
- * Set hard limits on avatar features, such as polygon count, audio sources, and some other things
-   * Reduce crashes
-   * Improve performance
-   * Remove annoying spawn sounds or global sounds
-   * Remove some fullscreen effects (this one is unreliable)
-   * Avatars over the limit are not replaced by a gray robot. Instead, elements over limits are removed, with the rest of the avatar kept intact.
- * Hide all avatars of a specific author (requires UI Expansion Kit, button is in user details menu)
- * Hide a specific avatar, no matter who uses it (requires UI Expansion Kit, button in in user quick menu)
- * Hide portals from blocked users or non-friends
-   * That blocked user will no longer be able to portal drop you
+## Purpose of this fork - What it is
+This repository is a fork of https://github.com/knah/VRCMods. It is created with the intention of separating the last version of FavCat that has functioning avatar favorites from the rest of the mods in the source repository, and, as of the first commit in this repository, was last updated to be compatible with build 1088 of VRChat. My hope is that, with the creation of this fork, that this mod can be maintained by open source means, rather than shady dll files flying around that, with modification, could compromise your account, your PC, and all the personal information you hold dear. In my opinion, if favcat continues to exist (it likely will in some form), the safest way is to make that existence open-source. I would encourage users to contribute to this project, I will accept contributions that are clearly not 
 
-This mod will introduce small lag spikes when avatars are loaded. These should be tolerable compared to VRChat's own lag spikes.  
-All numeric limits are configurable.  
- * Don't set animators limit to 0 - you will break all humanoid avatars horribly if you do  
+## What this is not
+This fork isn't an attempt to make a jab at the choices of the VRChat Modding Group, EMMVRC, or the VRChat Team. I understand that VRChat Plus is required to ensure the sustainability of the platform - That's why I continue to subscribe to it. I also understand VRCMG's desire to not step on VRC's monetization toes – favorite mod obsolescence may be what's needed to help VRChat understand and work with modders. However, I firstly don't believe that favorite mods should be removed when alternatives are poorer - examples include the 4 rows of 25 limitation, the inability to create and name categories, and the ability to have fast, local search, just within your favorites. I would consider this mod obsolete when either EMMVRC with VRC+ has feature parity, or when the base game with VRC+ does. Second, I don't agree with letting ordinary - and often inexperienced users - be left to search for malicious mods in malicious communities. Many users will download favorite mods no matter what in whatever source is easiest - and it harms both the modding community's reputation and VRChat at large when users unknowingly use malicious or maliciously modified mods because VRCMG could or would not provide them with a safe and usable alternative. 
 
-Configurable for friends and vanilla "show avatar" button.  
+##IMPORTANT NOTICE!
+I would like to clarify that I cannot, at the moment, maintain this mod by myself. I have no experience in C#, nor reverse engineering Unity. I need to rely on any willing contributors to maintain compatibility, fix bugs, and, if wanted, add new features. Otherwise, this mod will likely die after multiple VRChat updates. If it does, I'll keep it up as a separate repo for informational purposes, but once enough game updates roll out, I'll have to archive it. I would strongly encourage anyone experienced with VRChat modification to help me in this preservation effort. Please only submit code that's non-obfuscated - while I don't have the knowledge to do this myself, I've seen obfuscated code from decompiled malicious mods, and will not accept commits that contain it. I would recommend **against** forking this repository, and instead submitting pull requests. If you have another way you want to help, feel free to message me! (@camazing.me on Kik - no discord for privacy reasons)
 
-## CameraMinus
-Allows resizing the camera, zooming it in/out and hiding camera lens.  
-This is a lazy rewrite of original [VRCCameraPlus](https://github.com/Slaynash/VRCCameraPlus) by Slaynash.  
-Requires UI Expansion Kit - new buttons are added to Camera QuickMenu expansion.  
-
-## EmojiPageButtons
-This mod adds page buttons to old emoji menu that allow faster switching.  
-Requires UI Expansion Kit.  
-![emoji page buttons screenshot](https://imgur.com/gIq2vKw.png)
+#Documentation
+*copied from the original readme*
+*Please note that ILRepack was not removed, as it looked important to me. Feel free to create a github issue if it is not.*
 
 ## FavCat
 An all-in-one local favorites mod. Unlimited favorite lists with unlimited favorites in them and a searchable local database of content and players.  
@@ -97,116 +80,6 @@ Note that your favorites are stored in `favcat-favs.db` - don't send it to your 
 * [ImageSharp](https://github.com/SixLabors/ImageSharp), because unity is bad at loading images from streams on background thread
 
 A long time ago this was based on Slaynash's [AvatarFav](https://github.com/Slaynash/AvatarFav) and [VRCTools](https://github.com/Slaynash/VRCTools), both licensed under the [MIT license](https://github.com/Slaynash/VRCTools/blob/master/LICENSE). Who knows how much of that still remains inside?
-
-
-## Finitizer
-This mod fixes a set of issues arising from invalid floating point values being accepted from remote users.  
-**It might have a minor impact on performance that scales with player and pickup count**. Only use this mod if you frequent publics.
-
-## Friends+ Home
-Allows changing instance type of your home world to whatever you want.  
-Setting it to public will choose a random populated public instance if one is available.  
-UI Expansion Kit 0.2.0 or newer recommended for in-game settings.  
-Known instance types are `Public`, `FriendOfGuests`, `FriendsOnly`, `InvitePlus` and `InviteOnly` (if you wish to edit modprefs.ini by hand)
-
-## IKTweaks
-This mod offers a customized VRIK solver for full body tracking, and a few other IK-related tweaks.  
-Features:
-* No more viewpoint drift in FBT. Instead, your spine bends (up to a limit), or your hip drifts (above the limit).
-* No more weird chest rotations when laying down or upside down
-* No more weird spine/neck stretching
-* Remote players see the new IK too, there's no mismatch between what you and others see
-* Support for universal calibration - calibrate once for all avatars, even ones using different rigs or proportions
-* Support for per-avatar calibration saving (when not using universal calibration)
-* Half-click head follow calibration: hold one trigger to freeze the avatar in place to be able to look at your feet
-* Support for elbow, knee and chest trackers (read below)
-* Optional local NetIK pass to ensure you see the same thing as remote players (not necessary for Index Controller users)
-* Disable FBT even if you have trackers connected, for when you're charging them from your PC
-
-It's recommended to use a normal humanoid rig without any rig hacks (so no neck fix, no FBT fix, no inverted hip, no zero-length spine bones).  
-It requires at least three trackers (legs and hip). 3-point (no trackers) and 4-point (hip tracker) modes are not affected by the mod.
-
-### Using additional trackers
-You need to enable additional trackers in mod settings before you're able to use them.  
-To use knee trackers, there are no additional requirements - just calibrate normally.  
-To use elbow or chest trackers, you'll need to stand straight and T-pose your arms during calibration.  
-Chest tracker is kinda useless and janky, so don't bother buying a tracker for it.  
-It's recommended to put elbow/knee trackers as close to the joint they're tracking as possible (but not on the joint itself). For arms, the recommended position is on the outer surface of the lower or upper arm next to the elbow.  
-If you're using additional trackers, your avatar should generally match your physical proportions - that is, all body parts should line up reasonably well without real height hacks.
-
-### Partial source code
-This mod includes parts of FinalIK, which is a paid Unity Store asset, therefore source code for those is not provided.  
-If you want to build the mod yourself, you'll need to do the following:
-* Get a copy of FinalIK from asset store
-* Copy the VRIK solver, VRIK component and TwistRelaxer component into mod sources folder
-* Rename them to match with what the rest of mod source expects, make VRIK_New `partial`
-* Add the following line to start of `RootMotionNew.FinalIK.IKSolverVR.Spine.FABRIKPass` : `weight = Mathf.Clamp01(weight - pelvisPositionWeight);`
-* Remove `RootMotionNew.FinalIK.IKSolverVR.Spine.SolvePelvis` from the original VRIK solver
-* Rename `RootMotionNew.FinalIK.IKSolverVR.Leg.ApplyOffsets` to `ApplyOffsetsOld`, remove `override` from it
-* Add `ApplyBendGoal();` to the second line of `RootMotionNew.FinalIK.IKSolverVR.Leg.Solve(bool)`
-* Rename `Update`, `FixedUpdate` and `LateUpdate` on VRIK_New by adding `_ManualDrive` suffix to them and make them `internal` instead of `private`
-* Fix compilation if broken
-
-## JoinNotifier
-A VRChat mod to notify you when someone joins the instance you're in
-
-Current features:
- - Visual and audible notifications (configurable)
- - Toggleable per instance type (public/friends/private)
- - Can be set to highlight friends or show only friends
- - Custom join/leave sounds - put files named `JN-Join.ogg` and/or `JN-Leave.ogg` into `UserData` folder to override default sounds (they must be in Ogg Vorbis format, naturally)
-
-## Lag Free Screenshots
-This mod significantly improves screenshot taking performance for handheld camera in VR and F12 key in desktop mode. Benefits are especially noticeable with higher resolution screenshots (4K/8K).
-Additional features:
- * You can set your screenshots to be saved as JPEG files instead of PNG to save on file size.  
- * Automatically rotate screenshots so that proper side faces up (like on your real phone!)
- * Add metadata about world and players to screenshot files (disabled by default; both JPEG and PNG are supported, though PNG metadata is not displayed by Windows - you'll have to use a use different photo viewer software) 
-
-## MirrorResolutionUnlimiter
-Headset and display resolutions increase each year, and yet VRChat limits mirror resolution to 2048 pixels per eye. With this mod, that's not the case anymore!  
-Set whatever limit you want, with an option to un-potatoify mirrors that world makers set to potato resolution for their insane reasons. Or you can make all mirrors blurry as a sacrifice to performance gods. It's up to you, really.
-
-Note that increasing mirror texture resolution will increase VRAM usage and lower performance, as your GPU will have to do more work.
-
-If UI Expansion Kit is installed, Settings page in the main menu will get two buttons to optimize and beautify all visible mirrors in the world.
-
-Settings:
- * Max mirror resolution - the maximum size of eye texture for mirror reflections. 2048 is VRChat default, 4096 is mod default.
- * Force auto resolution - removes mirror resolution limits set by world maker. Off by default.
- * Mirror MSAA - changes MSAA specifically for mirrors. Valid values are 0 (same as main camera), 1, 2, 4 and 8. Lower MSAA may lead to "shimmering" and jaggies, especially in VR. 
-
-## ParticleAndBoneLimiterSettings
-This mod provides an UI for changing VRChat's built-in dynamic bone and particle limiter settings.  
-Refer to VRChat docs [for particle limiter](https://docs.vrchat.com/docs/avatar-particle-system-limits#particle-limiter-configuration-description) and [for dynamic bone limiter](https://docs.vrchat.com/docs/avatar-dynamic-bone-limits) for a detailed description of what these settings do.  
-Changing these settings should not require game restart.  
-Requires UI Expansion Kit. Settings are placed into the Mod Settings menu.
-
-## SparkleBeGone
-This mod allows removing start and end sparkles from VR laser pointers, as well as recoloring them.  
-It will do nothing on desktop.   
-Settings are fairly self-explanatory.
-
-## True Shader Anticrash
-This mod prevents practically all known shader crashes. Note that it can affect how stuff looks as it rewrites shader code to be non-crashy. Setting changes require world rejoin to reload shaders.
-### Partial source code
-Main logic of this mod is located in the native DLL that currently is not opensource. The DLL is build upon [HLSLcc](https://github.com/Unity-Technologies/HLSLcc) and uses [Microsoft Detours](https://github.com/microsoft/Detours). An opensource release for it will likely be available at a later point.
-
- 
-## UI Expansion Kit
-This mod provides additional UI panels for use by other mods, and a unified mod settings UI.  
-Some settings (currently boolean ones) can be pinned to quick menu for faster access.  
-Refer to [API](UIExpansionKit/API) for mod integration.  
-MirrorResolutionUnlimiter has an [example](MirrorResolutionUnlimiter/MirrorResolutionUnlimiterMod.cs) of soft dependency on this mod  
-EmojiPageButtons has an [example](EmojiPageButtons/EmojiPageButtonsMod.cs) for delaying button creation until your mod is done
- 
-This mod uses [Google Noto](https://www.google.com/get/noto/) font, licensed under [SIL Open Font License 1.1](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).  
-
-## View Point Tweaker
-This mod allows you to move view point ("view ball") on avatars. The tweak will affect only you, but other players will see your adjusted head position correctly.  
-Adjusted view points are saved per avatar.  
-**Requires UI Expansion Kit 0.2.0+**. The menu to tweak view point can be found in UI Elements Quick Menu submenu.  
-Do note that the coordinates displayed in that menu are local offset of the view point, not the coordinates you set in avatar descriptor.
 
 ## ILRepack
 There's a copy of [ILRepack.Lib.MSBuild.Task](https://github.com/ravibpatel/ILRepack.Lib.MSBuild.Task) and [ILRepack](https://github.com/gluck/il-repack) built for netcore/MSBuild 16 shipped with the repo.
